@@ -1,5 +1,6 @@
 package com.eliasraunig
 
+import io.ktor.http.HttpStatusCode
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.server.application.*
@@ -24,14 +25,21 @@ fun main() {
                 val payload = call.receive<ActionPayload>()
                 println("Received action: ${payload.action}")
 
-                when (payload.action) {
-                    //TODO
-                    "start" -> {
-                        println("Action started")
-                    }
+                val response = when (payload.action) {
+
+                    "leave" -> leave()
+
+                    "media_back" -> mediaBack()
+                    "media_play" -> mediaPlay()
+                    "media_forward" -> mediaForward()
+
+                    "rgb_up" -> rgbUp()
+                    "rgb_down" -> rgbDown()
+
+                    else -> "ERROR"
                 }
 
-                call.respondText("OK")
+                call.respondText(response)
             }
         }
     }.start(wait = true)

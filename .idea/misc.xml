@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="f39fe3a0-8062-4a5e-839f-2037321dffdd" />
   </component>
